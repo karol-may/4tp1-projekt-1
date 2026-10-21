@@ -25,13 +25,17 @@ function UserPage(){
                 </tr>
             </thead>
             <tbody>
-                {users.map(()=>
-                    <tr>
-                        <td>1</td>
-                        <td>2</td>
-                        <td>3</td>
-                        <td>4</td>
-                        <td>5</td>
+                {users.map((v,i)=>
+                    <tr key={i}>
+                        <td>{v.id}</td>
+                        <td>{v.name}</td>
+                        <td>{v.surname}</td>
+                        <td>{v.email}</td>
+                        <td className="d-flex gap-2">
+                            <button className="btn btm-sm btn-info"><i className="bi bi-eye-fill"></i></button>
+                            <button className="btn btm-sm btn-primary"><i className="bi bi-pencil-fill"></i></button>
+                            <button className="btn btm-sm btn-danger"><i className="bi bi-trash3-fill"></i></button>
+                        </td>
                     </tr>
                 )}
                 
