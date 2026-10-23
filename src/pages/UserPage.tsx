@@ -1,11 +1,15 @@
+import { NavLink } from "react-router";
+
+type UserType = {
+    id?: number;
+    name: string;
+    surname: string;
+    email: string;
+}
+
 function UserPage(){
 
-    type UserType = {
-        id: number;
-        name: string;
-        surname: string;
-        email: string;
-    }
+
     let users : UserType[] = [
         {id:1,name:"Karol",surname:"May",email:"karol@imay.pl"},
         {id:2,name:"Adam",surname:"September",email:"adam@iseptember.pl"}
@@ -40,9 +44,19 @@ function UserPage(){
                 )}
                 
             </tbody>
+            <tfoot>
+                <tr>
+                    <td colSpan={4}>Ilość użytkowników {users.length}</td>
+                    <td>
+                        <NavLink className={"btn btn-success"} to={"/user/new"}>
+                            <i className="bi bi-person-plus-fill"></i>
+                        </NavLink>
+                    </td>
+                </tr>
+            </tfoot>
         </table>
     </div>
     )
 }
 
-export {UserPage}
+export {UserPage, type UserType}
